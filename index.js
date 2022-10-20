@@ -4,36 +4,40 @@ import inquirer from 'inquirer';
 // file system
 import * as fs from 'node:fs';
 
-
-// DATA
-
-
 // FUNCTIONS
-const generateHTML = ({username: userName, location, bio, github: gitHub, linkedin: linkedIn}) => {
+const generateHTML = (
+  {
+    username: userName,
+    location,
+    bio,
+    github: gitHub,
+    linkedin: linkedIn
+  }
+) => {
   const htmlOutput = 
 `<!DOCTYPE html>
 <html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Portfolio</title>
-</head>
-<body>
-<header>
-  <h1>${userName}</h1>
-</header>
-<section>
-  <h2>${location}</h2>
-  <p>${bio}</p>
-</section>
-<section>
-  <ul>
-    <li>${gitHub}</li>
-    <li>${linkedIn}</li>
-  </ul>
-</section>
-</body>
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio</title>
+  </head>
+  <body>
+    <header>
+      <h1>${userName}</h1>
+    </header>
+    <section>
+      <h2>${location}</h2>
+      <p>${bio}</p>
+    </section>
+    <section>
+      <ul>
+        <li><a href="${gitHub}">GitHub</a></li>
+        <li><a href="${linkedIn}"></a>LinkedIn</li>
+      </ul>
+    </section>
+  </body>
 </html>`
 
 return htmlOutput;
@@ -76,8 +80,6 @@ const init = () => {
     })
   });
 }
-
-// USER INTERACTIONS
 
 // INITIALIZATION
 init();
